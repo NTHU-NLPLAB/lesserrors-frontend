@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LessErrors</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-sm fixed-top" style="background-color: #3498db;">
+        <div class="container">
+        <a class="navbar-brand" href="#" style="padding: 14px 0;">
+            <h2 style="margin-left: 22%; color: #ffffff; font-weight: 400;">LessErrors</h2>
+            <!-- <h2 style="margin-left: 22%; color: #ffffff; font-weight: 400;">GEC SYSTEM</h2> -->
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#" style="color: #ffffff;">help</a> -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:yee0@nlplab.cc" style="color: #ffffff;">Contact us</a>
+                <!-- <a class="nav-link" href="#" style="color: #ffffff;">Contact us</a> -->
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+
+
+    <!-- central area -->
+    <section class="jumbotron" style="background-color: #ffffff; border-radius: 0%; height: 100%;">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            
+                <div class="leftDiv">
+                    <!-- <div id="prompt"> Input or paste a sentence here :</div> -->
+                    <div id="prompt">
+                        Input a sentence here, or select an example down below :
+                        <select id="examples" style="width: 80%;">
+                            <option selected="selected">I am look forway see you.</option>
+                            <option>We hav discuss about the issue before.</option>
+                            <option>I approve your choice.</option>
+                            <option>The solution of this problem is still under discussion.</option>
+                            <option>Many of these illnesses are related smoking.</option>
+                            <option>Many of these illnesses are related with smoking.</option>
+                            <option>They all knows where the conference is and when.</option>
+                            <option>It will start by a speech from the director of the conference, followed by a meal.</option>
+                        </select>
+                    </div>
+                    <div class='text-body'>
+                        <div>
+                            <div class="form-group shadow-textarea">
+                                <!-- <textarea class="form-control" style="background-color: #ffffff; border-style: solid; border-color: #3498db; resize: none;" for="exampleFormControlTextarea6" rows="15" placeholder="e.g. I am looking forway see you." id='write-gec'></textarea> -->
+                                <textarea class="form-control" style="background-color: #ffffff; border-style: solid; border-color: #3498db; resize: none; font-size:18px;" for="exampleFormControlTextarea6" rows="15" id='write-gec'>I am looking forway see you.</textarea>
+                            </div>
+
+                            <!-- <div class="row float-right"> -->
+                            <!-- <label for="threshold">Threshold</label> -->
+                            <!-- <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="threshold">
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="threshold_insert">
+                            </div> -->
+                            <div class="col-button">
+                                <button type="button" class="btn btn-lg float-right" id="submit-button" style="background-color: #3498db; color: #ffffff;">check</button>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vl"></div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" class="rightDiv"> 
+                <!-- <div class="col"> -->
+                    <table id='returnTable'>
+                        <thead>
+                            <tr>
+                                <th class="align-center-col">step</th>
+                                <th>sentence</th >
+                                <th class="align-center-col">LM score</th>
+                                <th class="align-center-col">move up &#9650</th>
+                                <th class="align-center-col">error type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td class="align-center-col">1</td>
+                                <td>this is not the pizza that i ordering</td>
+                                <td class="align-center-col">0.119</td>
+                            </tr>
+                            <tr>
+                                <td class="align-center-col">2</td>
+                                <td>this is not the pizza that I ordering</td>
+                                <td class="align-center-col">0.147</td>
+                            </tr>
+                            <tr>
+                                <td class="align-center-col">3</td>
+                                <td>this is not the pizza that I ordered</td>
+                                <td class="align-center-col">0.181</td>
+                            </tr>
+                            <tr>
+                                <td class="align-center-col">4</td>
+                                <td>This is not the pizza that I ordered</td>
+                                <td class="align-center-col">0.215</td>
+                            </tr>
+                            <tr>
+                                <td class="align-center-col">5</td>
+                                <td>This is not the pizza that I ordered.</td>
+                                <td class="align-center-col">0.232</td>
+                            </tr> -->
+                        </tbody>
+                        <tfoot>
+                            <!-- <tr>
+                                <td class="align-center-col">5</td>
+                                <td>This is not the pizza that I ordered.</td>
+                                <td class="align-center-col">0.232</td>
+                            </tr> -->
+                        </tfoot>
+                    </table>
+                <!-- </div> -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- <footer class="fixed-bottom">
+
+        <div class="row" style="padding: 1.5em 0;">
+            <p class="col-sm-12">&copy; 2020 Charles Hsieh. All rights reserved.</p>
+	</div>
+    </footer> -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
