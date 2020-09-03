@@ -48,7 +48,7 @@ let nli_enable_neutral = true
 // AJAX functions
 // Code goes here
 const correct = async () => {
-    const api = "http://thor.nlplab.cc:9994/lesserrors";
+    const api = "<your_lesserrors_api_endpoint>/lesserrors";
     const data = JSON.stringify({"sent": $("#write-gec").val(), "threshold": threshold, "threshold_insert": threshold_insert, "sent_segmentation": sent_segmentation, "use_truecase": use_truecase, "addPeriod": addPeriod, "generate_insertion_candidates": generate_insertion_candidates, "use_nli": use_nli, "nli_enable_neutral": nli_enable_neutral});
     try {
         const response = await fetch(api, {
